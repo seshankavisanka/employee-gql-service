@@ -12,11 +12,16 @@ export class ProjectService {
   ) {}
 
   async findAll(): Promise<Project[]> {
-    return await this.projectRepository.find();
+    return await this.projectRepository.find({
+      relations: ['employees'],
+    });
   }
 
   async findOne(id: string): Promise<Project> {
-    return await this.projectRepository.findOneBy({ id: id });
+    return await this.projectRepository.findOne({
+      where: { id },
+      relations: ['employees'],
+    });
   }
 
   async create(project: CreateProjectInput): Promise<Project> {

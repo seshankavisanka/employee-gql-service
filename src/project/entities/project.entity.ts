@@ -17,7 +17,7 @@ export class Project {
   @Column()
   code: number;
 
-  @Field(() => Employee)
+  @Field(() => [Employee], { nullable: true })
   @OneToMany(() => Employee, (employee) => employee.project)
   employees: Employee[];
 }

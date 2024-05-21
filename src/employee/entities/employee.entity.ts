@@ -7,7 +7,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 export class Employee {
   @Field()
   @PrimaryGeneratedColumn('uuid')
-  _id: string;
+  id: string;
 
   @Field()
   @Column()

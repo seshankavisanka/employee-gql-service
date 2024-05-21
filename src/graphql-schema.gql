@@ -6,11 +6,11 @@ type Project {
   id: String!
   name: String!
   code: Int!
-  employees: Employee!
+  employees: [Employee!]
 }
 
 type Employee {
-  _id: String!
+  id: String!
   firstName: String!
   lastName: String!
   designation: String!
