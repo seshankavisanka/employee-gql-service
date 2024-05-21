@@ -13,6 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // read entities and generate the schema.gql
       autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql'),
     }),
+    // configure database
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -20,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'postgres',
       password: 'root',
       database: 'employee',
-      entities: ['dist/**/*.entity{.ts,.js'],
+      entities: ['dist/**/*.entity.{ts,js}'],
       synchronize: true,
     }),
     EmployeeModule,

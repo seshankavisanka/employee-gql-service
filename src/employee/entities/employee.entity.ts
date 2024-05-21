@@ -21,6 +21,6 @@ export class Employee {
   designation: string;
 
   @Field({ nullable: true })
-  @Column()
+  @Column({ nullable: true })
   city: string;
 }
