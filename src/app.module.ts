@@ -7,9 +7,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    EmployeeModule,
+    // configure service with GraphQL
     GraphQLModule.forRoot({
       driver: ApolloDriver,
+      // read entities and generate the schema.gql
       autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql'),
     }),
     TypeOrmModule.forRoot({
@@ -22,6 +23,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/**/*.entity{.ts,.js'],
       synchronize: true,
     }),
+    EmployeeModule,
   ],
   controllers: [],
   providers: [],
