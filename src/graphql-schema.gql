@@ -10,17 +10,31 @@ type Employee {
   city: String
 }
 
+type Project {
+  id: String!
+  name: String!
+  code: Int!
+}
+
 type Query {
   getAllEmployee: [Employee!]!
+  getAllProject: [Project!]!
+  findOneProject(id: String!): Project!
 }
 
 type Mutation {
-  createEmployee(employeeInput: EmployeeCreateDTO!): Employee!
+  createEmployee(employeeInput: CreateEmployeeDTO!): Employee!
+  createProject(projectInput: CreateProjectInput!): Project!
 }
 
-input EmployeeCreateDTO {
+input CreateEmployeeDTO {
   firstName: String!
   lastName: String!
   designation: String!
   city: String
+}
+
+input CreateProjectInput {
+  name: String!
+  code: Int!
 }
